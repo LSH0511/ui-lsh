@@ -1,0 +1,79 @@
+.banner {
+    width: 92%;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e0f2fe 100%);
+    border-radius: 12px;
+    margin: 20px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.banner .title h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.banner .content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.reference {
+    width: 92%;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    margin: 30px auto;
+}
+.reference-title h2 {
+    text-align: center;
+    margin: 20px auto;
+}
+.reference-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reference-content li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.reference-content li:hover {
+    background: #f1f5f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transform: translateX(5px);
+}
+
+.reference-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+.reference-content a {
+    color: #3498db;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.reference-content a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
