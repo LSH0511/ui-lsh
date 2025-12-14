@@ -18,6 +18,7 @@
             align-items: center;
             font-family: "Microsoft Yahei", sans-serif;
         }
+
         .bubble {
             position: absolute;
             bottom: -10vh;
@@ -43,7 +44,7 @@
             }
         }
 
-    
+
         .fixed-bubble {
             position: absolute;
             border-radius: 50%;
@@ -57,7 +58,7 @@
             animation: float 4.5s ease-in-out infinite alternate;
             transition: .35s ease;
             color: #003366;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 600;
             text-shadow: 0 1px 2px rgba(255, 255, 255, .6);
             user-select: none;
@@ -68,14 +69,14 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, .95);
         }
 
-    
+
         @keyframes float {
             from {
-                transform: translateY(-10px)
+                transform: translateY(-24px)
             }
 
             to {
-                transform: translateY(14px)
+                transform: translateY(24px)
             }
         }
     </style>
@@ -84,62 +85,63 @@
 <body>
 
     <script>
-        
-        const low = window.devicePixelRatio < 1.5 || /Android|iPhone/i.test(navigator.userAgent);
-        const cfg = () => ({ min: 10, max: 100, s: [low ? 6 : 4, low ? 10 : 8], interval: low ? 550 : 260, max: low ? 16 : 34 });
-        let count = 0;
+        document.addEventListener('DOMContentLoaded', function () {
+            const low = window.devicePixelRatio < 1.5 || /Android|iPhone/i.test(navigator.userAgent);
+            const cfg = () => ({ min: 10, max: 100, s: [low ? 6 : 4, low ? 10 : 8], interval: low ? 550 : 260, max: low ? 16 : 34 });
+            let count = 0;
 
-        function bubbleCreate() {
-            const c = cfg(); if (count >= c.max) return;
-            const B = document.createElement("div");
-            B.className = "bubble";
-            let size = Math.random() * (c.max - c.min) + c.min;
-            B.style.width = size + "px"; B.style.height = size + "px";
-            B.style.left = Math.random() * (innerWidth - size) + "px";
-            B.style.setProperty("--t", (Math.random() * (c.s[1] - c.s[0]) + c.s[0]) + "s");
-            document.body.append(B); count++;
-            setTimeout(() => { B.remove(); count-- }, c.s[1] * 1000);
-        }
-        setInterval(bubbleCreate, cfg().interval);
-        for (let i = 0; i < 10; i++) setTimeout(bubbleCreate, i * 180);
+            function bubbleCreate() {
+                const c = cfg(); if (count >= c.max) return;
+                const B = document.createElement("div");
+                B.className = "bubble";
+                let size = Math.random() * (c.max - c.min) + c.min;
+                B.style.width = size + "px"; B.style.height = size + "px";
+                B.style.left = Math.random() * (innerWidth - size) + "px";
+                B.style.setProperty("--t", (Math.random() * (c.s[1] - c.s[0]) + c.s[0]) + "s");
+                document.body.append(B); count++;
+                setTimeout(() => { B.remove(); count-- }, c.s[1] * 1000);
+            }
+            setInterval(bubbleCreate, cfg().interval);
+            for (let i = 0; i < 10; i++) setTimeout(bubbleCreate, i * 180);
 
-       
-        const PAGE_LINKS = [
-            { name: "Introduction", url: "./home.html" },
-            { name: "Skill Reflection", url: "./home.html" },
-            { name: "Sector analysis", url: "./home.html" },
-            { name: "Caneer goals", url: "./home.html" },
-            { name: "Self-Promotion", url: "./home.html" },
-            { name: "Conclusion", url: "./conclusion.html" },
-            { name: "Industry insight", url: "./home.html" },
-            { name: "Reference", url: "./home.html" },
-        ];
 
-        function createFixed() {
-            const placed = [], SIZE = [70, 135];
-            PAGE_LINKS.forEach(({ name, url }) => {
-                let d = document.createElement("div");
-                d.className = "fixed-bubble";
-                d.onclick = () => location.href = url;
+            const PAGE_LINKS = [
+                { name: "Introduction", url: "./introduction.html" },
+                { name: "Skill Reflection", url: "./home.html" },
+                { name: "Sector analysis", url: "./introduction.html" },
+                { name: "Career goals", url: "./industry.html" },
+                { name: "Self-Promotion", url: "./home.html" },
+                { name: "Conclusion", url: "./conclusion.html" },
+                { name: "Industry insight", url: "./industry.html" },
+                { name: "Reference", url: "./conclusion.html" },
+            ];
 
-                let size = Math.random() * (SIZE[1] - SIZE[0]) + SIZE[0];
-                d.style.width = size + "px"; d.style.height = size + "px";
-                d.innerHTML = name;  
+            function createFixed() {
+                const placed = [], SIZE = [70, 135];
+                PAGE_LINKS.forEach(({ name, url }) => {
+                    let d = document.createElement("div");
+                    d.className = "fixed-bubble";
+                    d.onclick = () => location.href = url;
 
-                let x, y, ok = false;
-                while (!ok) {
-                    x = innerWidth * 0.25 + Math.random() * innerWidth * 0.5 - size / 2;
-                    y = innerHeight * 0.25 + Math.random() * innerHeight * 0.5 - size / 2;
-                    ok = true;
-                    for (const p of placed)
-                        if (Math.hypot(p.x - x, p.y - y) < (p.size + size) / 1.4) ok = false;
-                }
-                placed.push({ x, y, size });
-                d.style.left = x + "px"; d.style.top = y + "px";
-                document.body.append(d);
-            });
-        }
-        createFixed();
+                    let size = Math.random() * (SIZE[1] - SIZE[0]) + SIZE[0];
+                    d.style.width = size + "px"; d.style.height = size + "px";
+                    d.innerHTML = name;
+
+                    let x, y, ok = false;
+                    while (!ok) {
+                        x = innerWidth * 0.25 + Math.random() * innerWidth * 0.5 - size / 2;
+                        y = innerHeight * 0.25 + Math.random() * innerHeight * 0.5 - size / 2;
+                        ok = true;
+                        for (const p of placed)
+                            if (Math.hypot(p.x - x, p.y - y) < (p.size + size) / 1.4) ok = false;
+                    }
+                    placed.push({ x, y, size });
+                    d.style.left = x + "px"; d.style.top = y + "px";
+                    document.body.append(d);
+                });
+            }
+            createFixed();
+        })();
     </script>
 </body>
 

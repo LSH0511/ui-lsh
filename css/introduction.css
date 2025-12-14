@@ -1,0 +1,104 @@
+.introduction {
+    display: flex;
+    justify-content: space-between;
+    margin: 42px auto;
+    padding: 0 42px;
+}
+.introduction-img h2 {
+    padding: 8px 0;
+    color: #999;
+}
+.introduction-text {
+    width: 40%;
+    margin-right: 20px;
+    padding: 32px 16px;
+    border: 1px solid #ccc;
+    border-radius: 42px;
+}
+.introduction-text p {
+    padding: 16px 0;
+    font-size: 14px;
+}
+.img-item ul {
+    display: flex;
+}
+.img-item li img {
+    width: auto;
+    height: 204px;
+}
+.analysis {
+    margin: 42px auto;
+    padding: 0 42px;
+}
+.design {
+    display: flex;
+    gap: 30px;
+}
+.design-img {
+    width: 30%;
+}
+.design-text {
+    width: 70%;
+    border-radius: 24px;
+    padding: 24px;
+    border: 1px solid #ccc;
+}
+.design-text p {
+    font-size: 14px;
+    padding: 4px 0;
+}
+.technology {
+    margin: 42px 0;
+}
+.technology ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.technology li:nth-child(n + 1) {
+    width: 14%;
+}
+.technology li:nth-child(2n) {
+    width: 36%;
+    border: 1px solid #ccc;
+    padding: 24px 14px;
+    border-radius: 24px;
+}
+.technology li p {
+    font-size: 14px;
+}
+.swot {
+    margin: 42px auto;
+    padding: 0 42px;
+}
+.swot h2 {
+    text-transform: uppercase;
+    font-size: 42px;
+    color: #999;
+}
+.swot h5 {
+    padding: 14px 0;
+    color: #999;
+}
+.swot-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px auto;
+}
+.swot-item {
+    width: 24%;
+    padding: 24px 16px;
+    border: 1px solid #ccc;
+    border-radius: 42px;
+}
+.swot-item p,
+.swot-footer p {
+    font-size: 14px;
+    color: #090909;
+}
+.swot-footer {
+    padding: 24px;
+    border: 1px solid #ccc;
+    border-radius: 42px;
+}
